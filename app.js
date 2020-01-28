@@ -8,7 +8,7 @@
  * By Nathan Friedly - http://nfriedly.com
  * Released under the terms of the Affero GPL v3
  */
-var wwwhisper = require('connect-wwwhisper');
+
 var url = require('url');
 var querystring = require('querystring');
 var express = require('express');
@@ -52,7 +52,7 @@ function googleAnalyticsMiddleware(data) {
     }
 }
 var unblockerConfig = {
-    prefix: '/proxy/',
+    prefix: '/p/',
     responseMiddleware: [
         googleAnalyticsMiddleware
     ]
@@ -62,7 +62,6 @@ var unblockerConfig = {
 
 // this line must appear before any express.static calls (or anything else that sends responses)
 app.use(unblocker(unblockerConfig));
-app.use(wwwhisper())
 // serve up static files *after* the proxy is run
 app.use('/', express.static(__dirname + '/public'));
 
