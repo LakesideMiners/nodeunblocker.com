@@ -11,6 +11,7 @@
     "newrelic": "^1.20.2",
     "through": "^2.3.8",
     "unblocker": "*"
+    "connect-wwwhisper": "*",
   },
   "engines": {
     "node": ">=6"
